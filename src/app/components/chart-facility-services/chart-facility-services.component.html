@@ -1,0 +1,15 @@
+<div class="w-100 h-100 d-flex  justify-content-center mb-4">
+    <strong>{{entityName}}</strong>
+</div>
+<div *ngIf="services.length > 0" class="row">
+    <div *ngFor="let item of services; let i = index" class="col-xl-4 col-sm-4 mb-5">
+        <facility-service [index]="i"
+                          [icon]="item['serviceIcon']['link']['href']"
+                          [name]="item['serviceName']"
+                          [description]="item['serviceDescription']"
+        ></facility-service>
+    </div>
+</div>
+<div *ngIf="services.length <= 0 && EntityId != 'none'" >
+    <app-empty></app-empty>
+</div>
